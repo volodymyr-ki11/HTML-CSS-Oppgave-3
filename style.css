@@ -1,9 +1,9 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
+ }
 :root{
 --background: rgba(0, 0, 0, 1);
 --text: #c9c8bb;
@@ -27,7 +27,7 @@ body {
 }
 
 .content {
-   max-width: 1600px;
+    max-width: 90%;
     width: 100%;
     padding: 0 20px;
     margin: 0 auto;
@@ -42,8 +42,8 @@ header {
     z-index: 100;
 
     background: rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);  /* note: same comand as backdrop-filter but for safari */
 
     border-bottom: 1px solid var(--text);
 }
@@ -93,9 +93,18 @@ header .content {
 }
 
 .hero {
-    min-height: 100vh;
+   
 
-    background-image: url("images/earthhero.jpg");
+    background-image: 
+    linear-gradient(
+    to top,
+    rgba(0,0,0,1) 1%,
+    rgba(0,0,0,0.5) 15%,
+    rgba(0,0,0,0.3) 30%,
+    rgba(0,0,0,0) 50%
+    ),
+    url("images/earthhero.jpg");
+    
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: cover;
@@ -104,20 +113,12 @@ header .content {
 
 .hero .content{
     min-height: 100vh;
-    padding-top: 100px;
+
     padding: var(--space);
 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
-    background: linear-gradient(
-    to top,
-    rgba(0,0,0,1) 1%,
-    rgba(0,0,0,0.5) 15%,
-    rgba(0,0,0,0.3) 30%,
-    rgba(0,0,0,0) 50%
-   );
 }
 
 .hero p {
@@ -168,6 +169,7 @@ p{
     font-weight: 700;
     text-decoration: none;
     Z-index: 5;
+    border-radius: 5px;
 }
 
 .factscroll {
