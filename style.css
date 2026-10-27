@@ -5,9 +5,10 @@
 }
 
 :root{
---background: #000000;
---text: hsl(38,7%,93%);
---gold: rgb(230,177,90);
+--background: #0b0f14;
+--text: #c9c8bb;
+--main1: #92BC62;
+--main2: #f5f5f5;
 --space: 20px;
 }
 
@@ -15,8 +16,9 @@ html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    margin: 20px;
+   
     background-color: var(--background);
     color: var(--text);
     font-family: "Babas Neue", sans-serif;
@@ -25,18 +27,47 @@ body {
 }
 
 .content {
-    width: 1000px;
+   max-width: 1600px;
+    width: 100%;
+    padding: 0 20px;
     margin: 0 auto;
 }
 
 header {
-    position: sticky;
+    position: fixed;
+    left: 0;
     top: 0;
-    background-color: var(--background);
-    border-bottom: 1px solid rgba(230, 177, 90, 0.5);
+    width: 100%;
+
+    z-index: 100;
+
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--text);
 }
 
+header:before {
+     content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 45%;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0)
+    );
+}
+
+
 header .content {
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,7 +75,7 @@ header .content {
 }
 
 .logo{
-    color: var(--gold);
+    color: var(--main1);
     font-size: 28px;
     font-weight: 700;
     text-decoration: none;
@@ -57,19 +88,46 @@ header .content {
 }
 
 .menu a{
-    color: var(--text);
+    color: var(--main2);
     text-decoration: none;
 }
 
-.hero .content{
-    min-height: 420px;
-    padding: 40px 0;
-    background-color: var(--background);
-    background-image: url("images/hero.jpg");
+.hero {
+    min-height: 100vh;
+
+    background-image: url("images/earthhero.jpg");
     background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 520px auto;
-    background-attachment: scroll;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+.hero .content{
+    min-height: 100vh;
+    padding-top: 100px;
+    padding: var(--space);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+
+.hero p {
+    position: relative;
+    max-width: 700px;
+    z-index: 5;
+}
+
+.hero p::before {
+    content: "";
+    position: absolute;
+    inset: -15px;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    filter: blur(15px);
+
+    z-index: -1;
 }
 
 h1, h2 {
@@ -78,24 +136,28 @@ h1, h2 {
 }
 
 h1{
-font-size: 72px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+    color: var(--main2);
+    font-size: 72px;
 }
 
 p{
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
     margin: 0 0 16px;
 }
 
 .label {
-    margin: 0;
-    color: var(--gold);
+    color: var(--main1);
     font-weight: 700;
 }
 
 .button{
+    align-self: flex-start;
     display: inline-block;
     padding: 12px 24px;
-    background-color: var(--gold);
-    color: #1a140c;
+    background-color: var(--main1);
+    color: var(--background);
     font-weight: 700;
     text-decoration: none;
+    Z-index: 5;
 }
