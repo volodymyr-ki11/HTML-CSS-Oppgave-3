@@ -178,7 +178,7 @@ p{
     background-color: var(--background);
 }
 .factscroll .content {
-    min-height: 50vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
